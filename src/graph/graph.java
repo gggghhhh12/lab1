@@ -2,20 +2,11 @@ package graph;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 import java.util.Random;
 import java.util.Scanner;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 
-import javax.imageio.stream.MemoryCacheImageInputStream;
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 public class graph extends JFrame
 {
 public String[] node=new String[1000];
@@ -102,18 +93,11 @@ public graph createDirectedGraph(String filename)
 		{
 			this.Matrix[i][i]=0;
 		}
-
+       fis.close();
 	}
 	
 	catch(IOException e){
 		e.printStackTrace();
-	}
-	finally{
-		try{
-			fis.close();
-		}catch(IOException e){
-			e.printStackTrace();
-		}
 	}
 	System.out.println("图已构建完成");
 	}
@@ -346,7 +330,7 @@ public String calsShortestPath(graph G,String word1,String word2)
 	{
 		word3=word3+"No\""+word2+"\" exist in the graph";
 	}
-	else if(w2==-1&&w2==-1)
+	else if(w1==-1&&w2==-1)
 	{
 		word3=word3+"No\""+word2+" and "+"\"exist in the graph";
 	}

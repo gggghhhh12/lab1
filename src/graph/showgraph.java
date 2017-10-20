@@ -1,15 +1,12 @@
 package graph;
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 import java.util.Scanner;
 
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.swing.*;
 public class showgraph extends JFrame {
 	graph G=new graph();
@@ -59,7 +56,6 @@ public class showgraph extends JFrame {
 	class ButtonListener1 implements ActionListener
 	{
 		String k;
-		private boolean change=false;
 	    public void actionPerformed (ActionEvent ae)
 	    {
 	    	    JFrame jf=new JFrame("´´½¨Í¼");
