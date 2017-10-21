@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
-
+ 
 import javax.swing.*;
 
 public class graph extends JFrame

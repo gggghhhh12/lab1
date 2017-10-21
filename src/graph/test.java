@@ -1,7 +1,7 @@
 package graph;
 
 import java.io.IOException;
-
+ 
 public class test {
     public static void main(String[] args) {
         GraphViz gViz=new GraphViz("C:\\Users\\11969\\Desktop\\1111","D:\\dot\\bin\\dot.exe" );
