@@ -196,12 +196,13 @@ public String queryBridgeWords(graph G,String word1,String word2)
 		}
 		else 
 		{
-			word3=word3+"The bridge words from \""+word1+"\"to \""+word2+"\"are: \" ";
+			word3=word3+"The bridge words from \""+word1+"\"to \""+word2+"\"are: ";
 			for(int i=0;i<count-1;i++)
 			{
-				System.out.print(out[i]+",");
+				word3=word3+out[i]+" ";
+				
 			}
-			System.out.print("and "+out[count-1]);
+			word3=word3+"and "+out[count-1]+"!";
 		}
 	}
 	return word3;
@@ -271,12 +272,14 @@ public String generateNewText(graph G,String inputText)
 }
 public String calsShortestPath(graph G,String word1,String word2)
 {
+	String word3=" ";
+	if(G!=null&&G.vertexnum>0)
+	{
 	int d[][]=new int[G.vertexnum][G.vertexnum];
 	boolean[][][] p = new boolean[G.vertexnum][G.vertexnum][G.vertexnum];
 	int w1=-1,w2=-1;
 	word1=word1.toLowerCase();
 	word2=word2.toLowerCase();
-	String word3="";
 	for(int i=0;i<G.vertexnum;i++)
 	{
 		if(G.node[i].equals(word1))
@@ -332,7 +335,7 @@ public String calsShortestPath(graph G,String word1,String word2)
 	}
 	else if(w1==-1&&w2==-1)
 	{
-		word3=word3+"No\""+word2+" and "+"\"exist in the graph";
+		word3=word3+"No\""+word1+" and "+word2+"\"exist in the graph";
 	}
 	else if(w1==w2)
 	{
@@ -342,8 +345,8 @@ public String calsShortestPath(graph G,String word1,String word2)
 	{
 		if(d[w1][w2]<100000)
 		{
-			word3=word3+"The length of the path is:"+d[w1][w2];
-		}
+			
+		word3=word3+"The length of the path is:"+d[w1][w2];
 		word3=word3+"     "+"The  path is: ";
 		for(int i=w1;i<G.vertexnum+w1;i++)
 		{
@@ -352,7 +355,14 @@ public String calsShortestPath(graph G,String word1,String word2)
 				word3=word3+G.node[i%G.vertexnum]+"->";
 			}
 		}
+		}
 		word3=word3+"END";
+		
+	}
+	}
+	else
+	{
+		word3="error";
 	}
      return word3;
 }
@@ -439,7 +449,8 @@ public static void main(String[] args) {
     		String begin=(String)sc.next();
     		System.out.println("«Î ‰»Î÷’÷π¥ £∫");
     		String end=(String)sc.next();
-    		G.queryBridgeWords(G, begin, end);
+    		String s=G.queryBridgeWords(G, begin, end);
+    		System.out.println(s);
     		System.out.println("«≈Ω”¥ “— ‰≥ˆ");
     		break;
     	case "4":
